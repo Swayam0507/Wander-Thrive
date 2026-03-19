@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WanderThrive - Receipt</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .receipt-box {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 3px solid #f0f0f0;
+      margin-bottom: 2rem;
+    }
+
+    .brand h1 {
+      color: #2887ff;
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: #1d6fe3;
+      font-weight: 800;
+    }
+
+    .brand-info {
+      text-align: right;
+    }
+
+    .brand-info p {
+      margin: 0.25rem 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .brand-info strong {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 1rem;
+    }
+
+    .section h3 {
+      color: #2887ff;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e0e0e0;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .details p {
+      margin: 0.75rem 0;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .details strong {
+      color: #333;
+      font-weight: 600;
+      min-width: 140px;
+      display: inline-block;
+    }
+
+    .total {
+      margin-top: 2rem;
+      padding: 1.75rem;
+      background: linear-gradient(135deg, rgba(40, 135, 255, 0.1), rgba(40, 135, 255, 0.05));
+      border-radius: 1rem;
+      border-left: 5px solid #2887ff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #2887ff;
+    }
+
+    .print-btn {
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, #2887ff, #1d6fe3);
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(40, 135, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(40, 135, 255, 0.5);
+    }
+
+    .print-btn:active {
+      transform: translateY(-1px);
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .print-btn {
+        display: none;
+      }
+
+      .receipt-box {
+        box-shadow: none;
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .receipt-box {
+        padding: 2rem 1.5rem;
+      }
+
+      .brand {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .brand-info {
+        text-align: center;
+      }
+
+      .brand h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="receipt-box" id="receiptContainer"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  const index = localStorage.getItem("selectedReceipt");
+  const booking = bookings[index];
+
+  if (!booking) {
+    document.getElementById("receiptContainer").innerHTML = "<h2>No Receipt Found</h2>";
+    return;
+  }
+
+  // Auto Generate Receipt Number
+  const receiptNumber = "WT-" + Math.floor(100000 + Math.random() * 900000);
+
+  // Format date properly
+  let dateText = "Not Available";
+  if (booking.date) {
+    // If it's a single date (package booking)
+    dateText = booking.date;
+  } else if (booking.startDate && booking.endDate) {
+    // If it's a date range (destination booking)
+    dateText = booking.startDate + " to " + booking.endDate;
+  }
+
+  // Get destination/package name
+  const tripName = booking.destination || booking.packageName || "N/A";
+  
+  // Get state (for destinations) or N/A for packages
+  const state = booking.state || "N/A";
+  
+  // Get plan (for destinations) or package type
+  const plan = booking.plan || "Standard Package";
+
+  document.getElementById("receiptContainer").innerHTML = `
+    <div class="brand">
+      <h1>Wander<span>Thrive</span></h1>
+      <div class="brand-info">
+        <p><strong>Receipt No:</strong> ${receiptNumber}</p>
+        <p><strong>Booking Date:</strong> ${new Date().toLocaleDateString()}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Customer Details</h3>
+      <div class="details">
+        <p><strong>Name:</strong> ${booking.user}</p>
+        <p><strong>Travelers:</strong> ${booking.travelers}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Trip Details</h3>
+      <div class="details">
+        <p><strong>Destination/Package:</strong> ${tripName}</p>
+        <p><strong>State:</strong> ${state}</p>
+        <p><strong>Plan:</strong> ${plan}</p>
+        <p><strong>Travel Date:</strong> ${dateText}</p>
+        <p><strong>Duration:</strong> ${booking.duration || "As per itinerary"}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Payment Details</h3>
+      <div class="details">
+        <p><strong>Package Price:</strong> ${booking.price || "To be confirmed"}</p>
+      </div>
+      <div class="total">
+        Total Paid: ${booking.price || "To be confirmed"}
+      </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+      <i class="ri-printer-line"></i> Print Receipt
+    </button>
+  `;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Bookings | WanderThrive</title>
+  <link rel="stylesheet" href="styleshome.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav__header">
+    <div class="nav__logo">
+      <a href="homepage.html" class="logo">WanderThrive</a>
+    </div>
+  </div>
+</nav>
+
+<section class="section__container">
+  <h2 class="section__header">My Bookings</h2>
+  <p class="section__description">View and manage all your travel bookings</p>
+
+  <div id="bookingList"></div>
+</section>
+
+<script src="main.js"></script>
+<script src="my-bookings.js"></script>
+</body>
+</html>
+
+
+<style>
+  body {
+    background: #f8f9fa;
+    min-height: 100vh;
+  }
+
+  #bookingList {
+    max-width: 900px;
+    margin: 2rem auto;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .booking-card {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+  }
+
+  .booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+  }
+
+  .booking-card h3 {
+    font-size: 1.6rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .booking-card p {
+    margin: 0.5rem 0;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .booking-card strong {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .booking-card .btn {
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .receipt-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .receipt-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+  }
+
+  .cancel-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+  }
+
+  .cancel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+  }
+
+  #bookingList > p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--subtext-color);
+    padding: 3rem;
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  @media (max-width: 768px) {
+    .booking-card {
+      padding: 1.5rem;
+    }
+
+    .booking-card .btn {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 0.75rem;
+    }
+  }
+</style>

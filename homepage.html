@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ========================================
+         META TAGS & CONFIGURATION
+         ======================================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WanderThrive - Your Travel Companion</title>
+
+    <!-- ========================================
+         EXTERNAL STYLESHEETS & FONTS
+         ======================================== -->
+    <!-- Remix Icons - Icon library -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    
+    <!-- Swiper - Carousel/Slider library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styleshome.css?v=11" />
+  </head>
+
+  <body id="home">
+    <!-- ========================================
+         NAVIGATION BAR
+         Sticky navigation with responsive menu
+         ======================================== -->
+    <nav class="nav__container">
+      <!-- Logo and Mobile Menu Toggle -->
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">WanderThrive</a>
+        </div>
+        <!-- Mobile menu button (visible on small screens) -->
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav__links" id="nav-links">
+        <li><a href="destinations.html">DESTINATIONS</a></li>
+        <li><a href="packages.html">PACKAGES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <!-- Authentication & Profile Section -->
+      <div class="nav__btns">
+        <!-- Login button (shown when user is not logged in) -->
+        <a href="login.html" class="btn btn--outline" id="loginBtn">Login</a>
+        
+        <!-- Logout button (shown when user is logged in) -->
+        <button class="btn btn--outline" id="logoutBtn" style="display: none;">
+          Logout
+        </button>
+        
+        <!-- Profile dropdown (shown when user is logged in) -->
+        <div id="profileWrapper" style="position: relative; display: none;">
+          <div id="profileIcon" class="profile-circle">
+            <span id="profileInitial"></span>
+          </div>
+
+          <div id="profileMenu" class="profile-menu">
+            <a href="my-bookings.html">My Bookings</a>
+            <a href="#" id="logoutMenuBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+         Main landing section with CTA
+         ======================================== -->
+    <header>
+      <div class="header__container">
+        <!-- Hero Content -->
+        <div class="header__content">
+          <p>ELEVATE YOUR TRAVEL JOURNEY</p>
+          <h1>Experience The <span class="highlight">Magic</span> Of Flight!</h1>
+          <div class="header__btns">
+            <button class="btn" onclick="window.location.href='#cta'">
+              Book A Trip Now
+            </button>
+          </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="header__image">
+          <img src="assets/header.png" alt="Travel destination header" />
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================================
+         POPULAR DESTINATIONS SECTION
+         Showcases top 3 featured destinations
+         ======================================== -->
+
+    <section class="section__container destination__container" id="dest">
+      <!-- Section Header -->
+      <h2 class="section__header">Popular Destination</h2>
+      <p class="section__description">
+        Discover the Most Loved Destinations Around the Globe
+      </p>
+      
+      <!-- Destinations Grid -->
+      <div class="destination__grid">
+        <!-- Destination Card 1: Manali -->
+        <div class="destination__card reveal-card">
+          <span class="badge">POPULAR</span>
+          <img src="img/manali.jpg" alt="Manali destination" />
+          
+          <!-- Hover Overlay with booking option -->
+          <div class="destination__overlay">
+            <h3>Manali</h3>
+            <p>Snow • Mountains • Adventure</p>
+            <button class="overlay-btn dest-book-btn"
+                    data-destination="Manali"
+                    data-state="Himachal Pradesh">
+                  Plan Trip
+            </button>
+          </div>
+          
+          <!-- Card Details -->
+          <div class="destination__card__details">
+            <div>
+              <h4 class="highlight dest-book-btn"
+                  data-destination="Manali"
+                  data-state="Himachal Pradesh">
+                Valley of Gods
+              </h4>        
+              <p>Manali, Himachal Pradesh</p>
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Card 2: Mehrangarh Fort -->
+        <div class="destination__card reveal-card">
+          <img src="img/mherangadh.webp" alt="Mehrangarh Fort destination" />
+          
+          <!-- Hover Overlay with booking option -->
+          <div class="destination__overlay">
+            <h3>Mehrangarh Fort</h3>
+            <p>Royal • Heritage • Historic</p>
+            <button class="overlay-btn dest-book-btn"
+                    data-destination="Jodhpur"
+                    data-state="Rajasthan">
+                  Plan Trip
+            </button>
+          </div>
+          
+          <!-- Card Details -->
+          <div class="destination__card__details">
+            <div>
+              <h4 class="highlight dest-book-btn"
+                  data-destination="Jodhpur"
+                  data-state="Rajasthan">
+                Mehrangarh Fort
+              </h4>
+              <p>Jodhpur, Rajasthan</p>
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Card 3: Ayodhya -->
+        <div class="destination__card reveal-card">
+          <img src="img/ayo.jpg" alt="Ayodhya destination" />
+          
+          <!-- Hover Overlay with booking option -->
+          <div class="destination__overlay">
+            <h3>Ayodhya</h3>
+            <p>Spiritual • Heritage</p>
+            <button class="overlay-btn dest-book-btn"
+                    data-destination="Ayodhya"
+                    data-state="Uttar Pradesh">
+                  Plan Trip
+            </button>
+          </div>
+          
+          <!-- Card Details -->
+          <div class="destination__card__details">
+            <div>
+              <h4 class="highlight dest-book-btn"
+                  data-destination="Ayodhya"
+                  data-state="Uttar Pradesh">
+                Ram Mandir
+              </h4>
+              <p>Ayodhya, Uttar Pradesh</p>
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Explore More Button -->
+      <div class="explore-more-container">
+        <a href="destinations.html" class="btn explore-more-btn">
+          Explore More Destinations →
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SHOWCASE SECTION
+         Highlights WanderThrive services
+         ======================================== -->
+    
+    <section class="section__container showcase__container" id="package">
+      <div class="showcase__image">
+        <img src="img/unity.jpg" alt="showcase" />
+      </div>
+      <div class="showcase__content">
+        <h4>UNLEASH WANDERLUST WITH WanderThrive</h4>
+        <p>
+          Discover exceptional travel experiences with WanderThrive. We design personalized itineraries tailored to your interests—whether you’re exploring vibrant cities, relaxing on pristine beaches, or uncovering rich cultural heritage.
+        </p>
+        <p>
+          With expert insights and carefully curated destinations, we ensure every journey is seamless, inspiring, and truly unforgettable.
+        </p>
+        <div class="showcase__btn">
+          <button class="btn">
+            <a href="packages.html">Explore The Packages</a>
+            <span><i class="ri-arrow-right-line"></i></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container journey__container" id="tour">
+      <h2 class="section__header">Explore The Unseen Beauty Of India!</h2>
+      <p class="section__description">
+        Effortless Planning for Your Next Trip
+      </p>
+      <div class="journey__grid">
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><i class="ri-bookmark-3-line"></i></span>
+            <h4>Seamless Booking Process</h4>
+          </div>
+          <div class="journey__card__content">
+            <span><i class="ri-bookmark-3-line"></i></span>
+            <h4>Easy Reservations, One Click Away</h4>
+            <p>
+              Flights, accommodations, activities, and transfers — all in one place.
+            </p>
+          </div>
+        </div>
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><i class="ri-landscape-fill"></i></span>
+            <h4>Tailored Itineraries</h4>
+          </div>
+          <div class="journey__card__content">
+            <span><i class="ri-landscape-fill"></i></span>
+            <h4>Personalized Plans Crafted Just for You</h4>
+            <p>
+              Enjoy personalized travel plans tailored to your interests and preferences.
+            </p>
+          </div>
+        </div>
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><i class="ri-map-2-line"></i></span>
+            <h4>Expert Local Insights</h4>
+          </div>
+          <div class="journey__card__content">
+            <span><i class="ri-map-2-line"></i></span>
+            <h4>Insider Tips and Recommendations</h4>
+            <p>
+              Discover top eats, sights, and hidden gems like a local.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container banner__container">
+      <div class="banner__card">
+        <h4>10+</h4>
+        <p>Years Experience</p>
+      </div>
+      <div class="banner__card">
+        <h4>12K</h4>
+        <p>Happy Clients</p>
+      </div>
+      <div class="banner__card">
+        <h4>4.8</h4>
+        <p>Overall Ratings</p>
+      </div>
+    </section>
+
+    <section class="section__container discover__container">
+      <h2 class="section__header">Discover The World From Above</h2>
+      <p class="section__description">
+        Experience Breathtaking Views and Unique Perspectives
+      </p>
+      <div class="discover__grid">
+        <div class="discover__card">
+          <span><i class="ri-camera-lens-line"></i></span>
+          <h4>Aerial Cityscapes</h4>
+          <p>
+            Witness the architectural marvels and bustling streets from
+            bird's-eye view, offering a unique perspective.
+          </p>
+        </div>
+        <div class="discover__card">
+          <span><i class="ri-ship-line"></i></span>
+          <h4>Coastal Wonders</h4>
+          <p>
+            Fly over pristine coastlines and turquoise waters, revealing hidden
+            coves and vibrant coral reefs.
+          </p>
+        </div>
+        <div class="discover__card">
+          <span><i class="ri-landscape-line"></i></span>
+          <h4>Historic Landmarks</h4>
+          <p>
+            Observe the grandeur of ancient castles and other significant sites
+            in a way that ground tours can't offer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container cta__container" id="cta">
+      <div class="cta__content">
+        <h2>Ready to Plan Your Next Journey?</h2>
+        <p>
+          Discover curated destinations, smart itineraries, and seamless travel
+          planning with WanderThrive.
+        </p>
+        <div class="cta__btns">
+          <a href="packages.html" class="btn">Explore Packages</a>
+          <a href="destinations.html" class="btn btn--outline">View Destinations</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --------------------------------Review-------------------------------- -->
+
+    <section class="section__container client__container">
+      <h2 class="section__header">Loved By Over Thousand Travelers</h2>
+      <p class="section__description">
+        Discover the stories of wanderlust and cherished memories through the
+        eyes of our valued clients.
+      </p>
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="client__card">
+              <div class="client__content">
+                <div class="client__rating">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                </div>
+                <p>
+                  WanderThrive has completely transformed my travel experience. From
+                  finding hidden gems in bustling cities to discovering serene
+                  retreats off the beaten path, every detail was thoughtfully
+                  arranged. I can't recommend WanderThrive enough for anyone looking
+                  to elevate their travel experience!
+                </p>
+              </div>
+              <div class="client__details">
+                <img src="assets/neel.jpeg" alt="client" />
+                <div>
+                  <h4>Neel Khatwala</h4>
+                  <h5>Travel Blogger</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <div class="client__content">
+                <div class="client__rating">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                </div>
+                <p>
+                  My recent adventure with WanderThrive was nothing short of
+                  spectacular. The personalized itineraries and recommendations
+                  they provided led me to extraordinary locations that I would
+                  never have found on my own. I'm already planning my next
+                  adventure with them!
+                </p>
+              </div>
+              <div class="client__details">
+                <img src="assets/Photo.jpg" alt="client" />
+                <div>
+                  <h4>Jainil Chauhan</h4>
+                  <h5>Adventure Enthusiast</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <div class="client__content">
+                <div class="client__rating">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                </div>
+                <p>
+                  WanderThrive offered a transformative experience for my research
+                  into historical landmarks. The unique aerial perspectives and
+                  provided a new level of appreciation and insight into the
+                  sites I studied. I highly recommend their services to fellow
+                  historians and cultural enthusiasts.
+                </p>
+              </div>
+              <div class="client__details">
+                <img src="assets/Swayam.jpeg" alt="client" />
+                <div>
+                  <h4>Swayam Vaghani</h4>
+                  <h5>Cultural Historian</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <div class="client__content">
+                <div class="client__rating">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                </div>
+                <p>
+                  Finding a balance between work and travel can be challenging,
+                  but WanderThrive made it effortless. Their efficient planning and
+                  excellent recommendations helped me maximize my downtime and
+                  enjoy every moment of my trip. I look forward to working with
+                  them again on future travels.
+                </p>
+              </div>
+              <div class="client__details">
+                <img src="assets/client-4.jpg" alt="client" />
+                <div>
+                  <h4>Dhruv Patel</h4>
+                  <h5>Business Executive</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- -------------------------------Footer------------------------------------- -->
+
+    <footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">WanderThrive</a>
+          </div>
+          <p>
+            Explore the world with ease and excitement through our comprehensive
+            travel platform. Your journey begins here, where seamless planning
+            meets unforgettable experiences.
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.facebook.com/"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul>
+        </div>         
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#dest">Destinations</a></li>
+            <li><a href="#package">Packages</a></li>
+            <li><a href="#tour">Experience</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="tel:+919879305076">
+                <span><i class="ri-phone-fill"></i></span> +91 9879305076
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@wanderthrive.com">
+                <span><i class="ri-record-mail-line"></i></span> info@wanderthrive.com
+              </a>
+            </li>
+            <li>
+              <a href="https://www.google.com/maps/place/Ahmedabad,+Gujarat/@23.0201581,72.4149273,11z/data=!3m1!4b1!4m6!3m5!1s0x395e848aba5bd449:0x4fcedd11614f6516!8m2!3d23.022505!4d72.5713621!16zL20vMDFkODhj?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D">
+                <span><i class="ri-map-pin-2-fill"></i></span> Ahmedabad-Gujarat, India
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2026 Web Design Mastery. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Destination Trip Planning Modal -->
+<div id="destModal" class="booking-modal" style="position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 1rem; overflow-y: auto;">
+  <div class="booking-content trip-planner-modal" style="background: #ffffff; border-radius: 1.5rem; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3); position: relative; margin: auto;">
+    <span class="close-dest-modal" style="position: absolute; right: 1.25rem; top: 1.25rem; font-size: 1.6rem; cursor: pointer; color: #999; z-index: 10; line-height: 1;">&times;</span>
+    
+    <div class="modal-header-section">
+      <div class="modal-icon">
+        <i class="ri-map-pin-user-line"></i>
+      </div>
+      <h2 id="destTitle" style="font-size: 1.75rem; color: var(--heading-color); margin-bottom: 0.35rem; font-weight: 700; text-align: center;">Destination</h2>
+      <p class="modal-subtitle" style="color: var(--subtext-color); font-size: 0.95rem; margin: 0; text-align: center;">Plan your custom trip</p>
+    </div>
+
+    <form id="destBookingForm" class="trip-planner-form">
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>
+            <i class="ri-calendar-check-line"></i>
+            Start Date
+          </label>
+          <input type="date" id="startDate" required>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <i class="ri-calendar-line"></i>
+            End Date
+          </label>
+          <input type="date" id="endDate" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <i class="ri-group-line"></i>
+          Number of Travelers
+        </label>
+        <input type="number" id="travelers" min="1" placeholder="How many people?" required>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <i class="ri-vip-crown-line"></i>
+          Choose Your Plan
+        </label>
+        <div class="plan-selector">
+          <label class="plan-option">
+            <input type="radio" name="plan" value="Budget" required>
+            <div class="plan-card">
+              <div class="plan-name">Budget</div>
+              <div class="plan-price">₹1,500/day</div>
+              <div class="plan-features">Basic hotels, Local transport</div>
+            </div>
+          </label>
+
+          <label class="plan-option">
+            <input type="radio" name="plan" value="Standard" required>
+            <div class="plan-card">
+              <div class="plan-name">Standard</div>
+              <div class="plan-price">₹3,000/day</div>
+              <div class="plan-features">3-star hotels, AC transport</div>
+            </div>
+          </label>
+
+          <label class="plan-option">
+            <input type="radio" name="plan" value="Luxury" required>
+            <div class="plan-card">
+              <div class="plan-name">Luxury</div>
+              <div class="plan-price">₹6,000/day</div>
+              <div class="plan-features">5-star hotels, Premium service</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div id="tripSummary" class="trip-summary"></div>
+
+      <button type="submit" class="btn btn-submit">
+        <i class="ri-check-line"></i>
+        Confirm Trip Plan
+      </button>
+    </form>
+
+  </div>
+</div>
+
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

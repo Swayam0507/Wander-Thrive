@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations | WanderThrive</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styleshome.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="destinations.css">
+</head>
+
+<body class="dest-page">
+
+<!-- ✅ NAVBAR (IDENTICAL STRUCTURE TO HOMEPAGE) -->
+<nav>
+  <div class="nav__container">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="homepage.html" class="logo">WanderThrive</a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li><a href="homepage.html">HOME</a></li>
+      <li><a href="destinations.html" class="active">DESTINATIONS</a></li>
+      <li><a href="packages.html">PACKAGE</a></li>
+      <li><a href="homepage.html#contact">CONTACT</a></li>
+    </ul>
+
+    <div class="nav__btns">
+  <a href="login.html" class="btn btn--outline" id="loginBtn">Login</a>
+
+  <div id="profileWrapper" style="position:relative; display:none;">
+    <div id="profileIcon" class="profile-circle">
+      <span id="profileInitial"></span>
+    </div>
+
+    <div id="profileMenu" class="profile-menu">
+      <a href="my-bookings.html">My Bookings</a>
+      <a href="#" id="logoutMenuBtn">Logout</a>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="dest-hero">
+  <h1>Explore Destinations</h1>
+  <p>Handpicked places to fuel your wanderlust</p>
+</section>
+
+<!-- FILTER BAR -->
+<section class="filter-bar">
+  <div class="filter-group">
+    <label for="stateFilter">
+      <i class="ri-map-pin-line"></i>
+      <span>State</span>
+    </label>
+    <select id="stateFilter">
+      <option value="all">All States</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Himachal Pradesh">Himachal Pradesh</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="West Bengal">West Bengal</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Uttarakhand">Uttarakhand</option>
+      <option value="Goa">Goa</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="typeFilter">
+      <i class="ri-compass-3-line"></i>
+      <span>Type</span>
+    </label>
+    <select id="typeFilter">
+      <option value="all">All Types</option>
+      <option value="Hill Station">Hill Station</option>
+      <option value="Beach">Beach</option>
+      <option value="Heritage">Heritage</option>
+      <option value="Spiritual">Spiritual</option>
+      <option value="Lakes & Backwaters">Lakes & Backwaters</option>
+      <option value="Adventure">Adventure</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="ratingFilter">
+      <i class="ri-star-line"></i>
+      <span>Rating</span>
+    </label>
+    <select id="ratingFilter">
+      <option value="all">Any Rating</option>
+      <option value="4.5">4.5+ ⭐</option>
+      <option value="4.0">4.0+ ⭐</option>
+      <option value="3.5">3.5+ ⭐</option>
+    </select>
+  </div>
+
+  <button class="reset-filters" id="resetFilters">
+    <i class="ri-refresh-line"></i>
+    Reset Filters
+  </button>
+</section>
+
+<!-- DESTINATIONS GRID -->
+<section class="dest-grid">
+
+  <div class="dest-card featured"
+     data-state="Himachal Pradesh"
+     data-type="Hill Station"
+     data-rating="4.9">
+    <span class="badge">FEATURED</span>
+    <img src="img/Spiti Valley.jpg" alt="Spiti Valley">
+
+    <div class="dest-overlay">
+      <h3>Spiti Valley</h3>
+      <p>Himalayas • Adventure • Culture</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Spiti Valley"
+              data-state="Himachal Pradesh">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Spiti Valley</h3>
+      <p>Himachal Pradesh</p>
+      <span>⭐ 4.9</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="Himachal Pradesh"
+     data-type="Hill Station"
+     data-rating="4.7">
+    <span class="badge">FEATURED</span>
+    <img src="img/manali.jpg" alt="Manali">
+
+    <div class="dest-overlay">
+      <h3>Manali</h3>
+      <p>Snow • Mountains • Adventure</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Manali"
+              data-state="Himachal Pradesh">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Manali</h3>
+      <p>Himachal Pradesh</p>
+      <span>⭐ 4.7</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="Goa"
+     data-type="Beach"
+     data-rating="4.8">
+    <span class="badge">TOP RATED</span>
+    <img src="img/goa.jpg" alt="Goa">
+
+    <div class="dest-overlay">
+      <h3>Goa</h3>
+      <p>Beaches • Nightlife • Relax</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Goa"
+              data-state="Goa">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Goa</h3>
+      <p>Beach Paradise</p>
+      <span>⭐ 4.8</span>
+    </div>
+  </div>
+
+  <div class="dest-card"
+     data-state="Rajasthan"
+     data-type="Heritage"
+     data-rating="4.6">
+    <img src="img/udaipur.jpg" alt="Udaipur">
+
+    <div class="dest-overlay">
+      <h3>Udaipur</h3>
+      <p>Lakes • Royal • Heritage</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Udaipur"
+              data-state="Rajasthan">
+        Plan Trip
+      </button>
+    </div>
+
+    <div class="dest-info">
+      <h3>Udaipur</h3>
+      <p>Rajasthan</p>
+      <span>⭐ 4.6</span>
+    </div>
+  </div>
+
+  <div class="dest-card"
+     data-state="Gujarat"
+     data-type="Spiritual"
+     data-rating="4.3">
+    <img src="img/dwarka.jpg" alt="Dwarka">
+
+    <div class="dest-overlay">
+      <h3>Dwarka</h3>
+      <p>Spiritual • Coastal</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Dwarka"
+              data-state="Gujarat">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Dwarka</h3>
+      <p>Gujarat</p>
+      <span>⭐ 4.3</span>
+    </div>
+  </div>
+
+  <div class="dest-card"
+     data-state="Uttar Pradesh"
+     data-type="Spiritual"
+     data-rating="4.4">
+    <img src="img/ayo.jpg" alt="Ayodhya">
+
+    <div class="dest-overlay">
+      <h3>Ayodhya</h3>
+      <p>Spiritual • Heritage</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Ayodhya"
+              data-state="Uttar Pradesh">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Ayodhya</h3>
+      <p>Uttar Pradesh</p>
+      <span>⭐ 4.4</span>
+    </div>
+  </div>
+
+  <div class="dest-card"
+     data-state="Gujarat"
+     data-type="Heritage"
+     data-rating="4.7">
+    <img src="img/kutch.jpg" alt="Kutch">
+
+    <div class="dest-overlay">
+      <h3>Kutch</h3>
+      <p>Desert • Culture</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Kutch"
+              data-state="Gujarat">
+        Plan Trip
+      </button>
+    </div>
+
+    <div class="dest-info">
+      <h3>Kutch</h3>
+      <p>Gujarat</p>
+      <span>⭐ 4.7</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="Rajasthan"
+     data-type="Heritage"
+     data-rating="4.5">
+    <img src="img/Jaipur.jpg" alt="Rajasthan">
+
+    <div class="dest-overlay">
+      <h3>Jaipur</h3>
+      <p>Heritage • Culture • Royal</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Jaipur"
+              data-state="Rajasthan">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Jaipur</h3>
+      <p>Rajasthan</p>
+      <span>⭐ 4.5</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="Uttar Pradesh"
+     data-type="Spiritual"
+     data-rating="4.6">
+    <img src="img/Varanasi.jpg" alt="Varanasi">
+
+    <div class="dest-overlay">
+      <h3>Varanasi</h3>
+      <p>Spiritual • Heritage • Ganges</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Varanasi"
+              data-state="Uttar Pradesh">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Varanasi</h3>
+      <p>Uttar Pradesh</p>
+      <span>⭐ 4.6</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="Uttarakhand"
+     data-type="Adventure"
+     data-rating="4.8">
+    <img src="img/Rishikesh.jpg" alt="Rishikesh">
+
+    <div class="dest-overlay">
+      <h3>Rishikesh</h3>
+      <p>Adventure • Yoga • Nature</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Rishikesh"
+              data-state="Uttarakhand">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Rishikesh</h3>
+      <p>Uttarakhand</p>
+      <span>⭐ 4.8</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="West Bengal"
+     data-type="Hill Station"
+     data-rating="4.5">
+    <img src="img/Darjeeling.jpg" alt="Darjeeling">
+
+    <div class="dest-overlay">
+      <h3>Darjeeling</h3>
+      <p>Mountain • Tea • Scenic</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Darjeeling"
+              data-state="West Bengal">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Darjeeling</h3>
+      <p>West Bengal</p>
+      <span>⭐ 4.5</span>
+    </div>
+  </div>
+
+  <div class="dest-card featured"
+     data-state="Kerala"
+     data-type="Lakes & Backwaters"
+     data-rating="4.9">
+    <img src="img/Kerala.jpg" alt="Munnar">
+
+    <div class="dest-overlay">
+      <h3>Munnar</h3>
+      <p>Backwaters • Beaches • Culture</p>
+      <button class="overlay-btn dest-book-btn"
+              data-destination="Munnar"
+              data-state="Kerala">
+        Plan Trip
+      </button>
+
+    </div>
+
+    <div class="dest-info">
+      <h3>Munnar</h3>
+      <p>Kerala</p>
+      <span>⭐ 4.9</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- Destination Trip Planning Modal -->
+<div id="destModal" class="booking-modal">
+  <div class="booking-content trip-planner-modal">
+    <span class="close-dest-modal">&times;</span>
+    
+    <div class="modal-header-section">
+      <div class="modal-icon">
+        <i class="ri-map-pin-user-line"></i>
+      </div>
+      <h2 id="destTitle">Destination</h2>
+      <p class="modal-subtitle">Plan your custom trip</p>
+    </div>
+
+    <form id="destBookingForm" class="trip-planner-form">
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>
+            <i class="ri-calendar-check-line"></i>
+            Start Date
+          </label>
+          <input type="date" id="startDate" required>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <i class="ri-calendar-line"></i>
+            End Date
+          </label>
+          <input type="date" id="endDate" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <i class="ri-group-line"></i>
+          Number of Travelers
+        </label>
+        <input type="number" id="travelers" min="1" placeholder="How many people?" required>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <i class="ri-vip-crown-line"></i>
+          Choose Your Plan
+        </label>
+        <div class="plan-selector">
+          <label class="plan-option">
+            <input type="radio" name="plan" value="Budget" required>
+            <div class="plan-card">
+              <div class="plan-name">Budget</div>
+              <div class="plan-price">₹1,500/day</div>
+              <div class="plan-features">Basic hotels, Local transport</div>
+            </div>
+          </label>
+
+          <label class="plan-option">
+            <input type="radio" name="plan" value="Standard" required>
+            <div class="plan-card">
+              <div class="plan-name">Standard</div>
+              <div class="plan-price">₹3,000/day</div>
+              <div class="plan-features">3-star hotels, AC transport</div>
+            </div>
+          </label>
+
+          <label class="plan-option">
+            <input type="radio" name="plan" value="Luxury" required>
+            <div class="plan-card">
+              <div class="plan-name">Luxury</div>
+              <div class="plan-price">₹6,000/day</div>
+              <div class="plan-features">5-star hotels, Premium service</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div id="tripSummary" class="trip-summary"></div>
+
+      <button type="submit" class="btn btn-submit">
+        <i class="ri-check-line"></i>
+        Confirm Trip Plan
+      </button>
+    </form>
+
+  </div>
+</div>
+
+
+<script src="main.js"></script>
+<script src="destinations.js"></script>
+</body>
+</html>
